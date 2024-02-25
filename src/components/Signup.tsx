@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
 interface IUser {
+  ID: string;
   name: string;
   email: string;
   password: string;
@@ -13,32 +14,32 @@ export default function Signup() {
 
   const navigate = useNavigate();
   const [user, setUser] = useState<IUser>({
-    name: '',
+    ID: uuidv4(),
     email: '',
-    password: ''
+    password: '',
+    name: '',
   });
 
   // Signup
-  const signupUser = (e: React.MouseEvent) => {
+  const signupUser = async (e: React.MouseEvent) => {
     e.preventDefault();
 
-    try {
-      const createNewUserAccount = account.create(
-        uuidv4(),
-        user.name,
-        user.email,
-        user.password,
-      ).then((res) => {
-        console.log(res);
-        navigate("/profile");
-      });
-      return createNewUserAccount;
-    } catch (error) {
+    const createNewUserAccount = account.create(
+      user.ID,
+      user.email,
+      user.password,
+      user.name,
+    )
+
+    await createNewUserAccount.then((res) => {
+      console.log(res)
+      navigate("/profile")
+    }, (error) => {
       console.log(error)
-    }
+    })
+
 
   }
-
 
 
   return (
