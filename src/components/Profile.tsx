@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { account } from '../appwrite/appwriteConfig';
 import { useNavigate, Link } from 'react-router-dom';
 import { Models } from 'appwrite';
-import { TodoForm, Todos } from '.';
+import { TodoForm } from '.';
 
 export default function Profile() {
 
@@ -52,7 +52,7 @@ export default function Profile() {
           {/* TODO FORM */}
           <TodoForm />
           {/* TODOS BOX */}
-          <Todos />
+          {/* <Todos /> */}
         </>
       ) : (
         <p className="mt-4">
