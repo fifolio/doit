@@ -1,1 +1,1 @@
-[Try Live!](https://letsdoitapp.netlify.app/)
+# [Try it 🚀!](https://letsdoitapp.netlify.app/)
