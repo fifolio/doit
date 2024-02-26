@@ -53,13 +53,14 @@ export default function TodoForm() {
           id="todoInput"
           placeholder="Enter Todo"
           className="border p-2 w-2/3 rounded-md"
+          required
           onChange={(e) => {
             setTodoDetails({ title: e.target.value })
           }}
           value={todoDetails.title}
         />
         <button
-          className="bg-purple-500 p-2 text-white ml-2 rounded-md"
+          className="bg-purple-500 font-bold p-2 text-white ml-2 rounded-md"
           type="submit"
         >
           Add Todo
